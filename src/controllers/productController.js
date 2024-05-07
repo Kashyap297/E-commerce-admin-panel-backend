@@ -4,7 +4,7 @@ const subCategoryModel = require("../models/subCategoryModel")
 const productController = {
     create: async (req, res) => {
         try {
-            let productimage = ''
+            let productimage = '';
             if (req.file) {
                 productimage = req.file.filename
             }
@@ -56,6 +56,7 @@ const productController = {
         try {
             const product = await productModel.findById(id)
             const subCategoryData = await subCategoryModel.find({})
+            console.log(product)
             res.render('Pages/product/editproduct', { product: product, subcategories: subCategoryData })
         } catch (error) {
             console.log(error)

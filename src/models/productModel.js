@@ -15,8 +15,7 @@ const productSchema = new mongoose.Schema({
         required : true
     },
     productimage : {
-        type : String,
-        required : true
+        type : String
     },
     subCategoryID: {
         type: mongoose.Schema.Types.ObjectId,
