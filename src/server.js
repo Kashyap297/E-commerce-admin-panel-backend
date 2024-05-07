@@ -3,7 +3,6 @@ const dbConnection = require('./config/db');
 const categoryRouter = require('./routes/categoryRoute');
 const subCatRouter = require('./routes/subCategoryRoute');
 const productRouter = require('./routes/productRoute');
-const categoryModel = require('./models/categoryModel');
 const app = express()
 
 // port
