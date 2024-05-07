@@ -303,7 +303,8 @@
                     <div class="relative" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
                         <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
                             <span class="hidden text-right lg:block">
-                                <span class="block text-sm font-medium text-black dark:text-white">Kashyap Chauhan</span>
+                                <span class="block text-sm font-medium text-black dark:text-white">Kashyap
+                                    Chauhan</span>
                                 <span class="block text-xs font-medium">Full Stack Developer</span>
                             </span>
 
@@ -428,9 +429,38 @@
                                                 Add Product
                                             </label>
                                             <input type="text" name="name" placeholder="i.e, Sofa, Refrigerator"
-                                                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+                                                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                                required />
                                         </div>
                                     </div>
+                                    <div class="mb-4.5">
+                                        <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+                                            Description
+                                        </label>
+                                        <textarea rows="3" name="description" placeholder="Type your Product Description"
+                                            class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" required></textarea>
+                                    </div>
+                                    <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                                        <div class="w-full ">
+                                            <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+                                                Price
+                                            </label>
+                                            <input type="number" name="price" placeholder="i.e, 9999"
+                                                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                                required />
+                                        </div>
+                                    </div>
+                                    <div class="mb-4.5">
+                                        <label
+                                          class="mb-3 block text-sm font-medium text-black dark:text-white"
+                                        >
+                                          Attach file
+                                        </label>
+                                        <input
+                                          type="file" name="productimage"
+                                          class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent font-normal outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:px-5 file:py-3 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-form-strokedark dark:file:bg-white/30 dark:file:text-white dark:focus:border-primary"
+                                        />
+                                      </div>
                                     <div class="mb-4.5">
                                         <label class="mb-3 block text-sm font-medium text-black dark:text-white">
                                             Sub-Category
@@ -440,7 +470,7 @@
                                             <select
                                                 class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                                                 :class="isOptionSelected && 'text-black dark:text-white'"
-                                                @change="isOptionSelected = true" name="subCategoryID">
+                                                @change="isOptionSelected = true" name="subCategoryID" required>
                                                 <option value="" class="text-body">
                                                     -- Select Sub-Category --
                                                 </option>
@@ -463,18 +493,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- <div class="mb-6">
-                        <label
-                          class="mb-3 block text-sm font-medium text-black dark:text-white"
-                        >
-                          Message
-                        </label>
-                        <textarea
-                          rows="6"
-                          placeholder="Type your message"
-                          class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                        ></textarea>
-                      </div> -->
+                                    
 
                                     <button
                                         class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">

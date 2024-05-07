@@ -5,6 +5,7 @@ const productController = {
     create: async (req, res) => {
         try {
             const product = await productModel.create(req.body)
+            console.log(product)
             res.redirect('back')
         } catch (error) {
             console.log(error)
