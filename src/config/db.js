@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const url = 'mongodb+srv://kashyap29700:4Nb5XYHTA7tehnIm@cluster0.zqmotx1.mongodb.net/projecttable'
+const url = 'mongodb+srv://kashyap29700:0dDOcS8FhzjA9P7z@cluster0.n8c9aol.mongodb.net/FinalProj'
 
 const dbConnection = async () => {
     try {
