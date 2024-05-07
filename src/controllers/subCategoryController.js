@@ -13,7 +13,7 @@ const subCatController = {
     get: async (req, res) => {
         try {
             const subcategory = await subCategoryModel.find({}).populate('categoryID')
-            res.render('Pages/subcategory', { subcategories: subcategory })
+            res.render('Pages/subcategory/subcategory', { subcategories: subcategory })
         } catch (error) {
             console.log(error)
         }
@@ -21,7 +21,7 @@ const subCatController = {
     form: async (req, res) => {
         try {
             const categoryData = await categoryModel.find({})
-            res.render('Pages/addsubcategory', { categories: categoryData })
+            res.render('Pages/subcategory/addsubcategory', { categories: categoryData })
         } catch (error) {
             console.log(error)
         }
@@ -40,7 +40,7 @@ const subCatController = {
         try {
             const subcategory = await subCategoryModel.findById(id)
             const categoryData = await categoryModel.find({})
-            res.render('Pages/editsubcategory', { subcategory: subcategory, categories: categoryData })
+            res.render('Pages/subcategory/editsubcategory', { subcategory: subcategory, categories: categoryData })
         } catch (error) {
             console.log(error)
         }

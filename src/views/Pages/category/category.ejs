@@ -1,4 +1,4 @@
-<%- include('../Partials/Header.ejs') %>
+<%- include('../../Partials/Header') %>
 
   <!-- ===== Content Area Start ===== -->
   <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
@@ -388,7 +388,7 @@
         <!-- Breadcrumb Start -->
         <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 class="text-title-md2 font-bold text-black dark:text-white">
-            Products
+            Category
           </h2>
 
           <nav>
@@ -396,7 +396,7 @@
               <li>
                 <a class="font-medium" href="/">Dashboard /</a>
               </li>
-              <li class="font-medium text-primary">Products</li>
+              <li class="font-medium text-primary">Category</li>
             </ol>
           </nav>
         </div>
@@ -412,46 +412,41 @@
                     <th class=" px-4 py-4 font-medium text-black dark:text-white xl:pl-11">
                       Sr.
                     </th>
+                    <th class=" px-4 py-4 font-medium text-black dark:text-white"></th>
                     <th class=" px-4 py-4 font-medium text-black dark:text-white text-center">
-                      Products
+                      Category
                     </th>
-                    <th class=" px-4 py-4 font-medium text-black dark:text-white text-center">Sub-Category</th>
-                    <th class=" px-4 py-4 font-medium text-black dark:text-white text-center">Category</th>
+                    <!-- <th class="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                      Status
+                    </th> -->
+                    <th class=" px-4 py-4 font-medium text-black dark:text-white"></th>
                     <th class="px-4 py-4 font-medium text-black dark:text-white text-center">
                       Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% products && products.map((product, index)=>{ %>
+                  <% categories && categories.map((category, index)=>{ %>
                     <tr>
                       <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                         <h5 class="font-medium text-black dark:text-white">
                           <%= index + 1 %>
                         </h5>
                       </td>
-                      <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark text-center">
-                        <p class="text-black dark:text-white">
-                          <%= product.name %>
+                      <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark">
+                        <h5 class="font-medium text-black dark:text-white"></h5>
+                      </td>
+                      <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark text-center capitalize">
+                        <p class="text-black dark:text-white capitalize">
+                          <%= category.name %>
                         </p>
                       </td>
                       <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark">
-                        <h5 class="font-medium text-black dark:text-white text-center">
-                          <% if (product.subCategoryID) { %>
-                            <%= product.subCategoryID.name %>
-                              <% } %>
-                        </h5>
-                      </td>
-                      <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark">
-                        <h5 class="font-medium text-black dark:text-white text-center">
-                          <% if (product.subCategoryID && product.subCategoryID.categoryID) { %>
-                            <%= product.subCategoryID.categoryID.name %>
-                              <% } %>
-                        </h5>
+                        <h5 class="font-medium text-black dark:text-white"></h5>
                       </td>
                       <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                         <div class="flex items-center justify-center space-x-3.5">
-                          <a class="hover:text-primary" href="/product/edit/<%= product._id %>">
+                          <a class="hover:text-primary" href="/category/edit/<%= category._id%>">
                             <svg class="fill-current" width="22" height="22" viewBox="0 0 18 18" fill="none"
                               xmlns="http://www.w3.org/2000/svg">
                               <path
@@ -462,7 +457,7 @@
                                 fill="" />
                             </svg>
                           </a>
-                          <a class="hover:text-primary" href="/product/delete/<%= product._id %>">
+                          <a class="hover:text-primary" href="/category/delete/<%= category._id%>">
                             <svg class="fill-current" width="22" height="22" viewBox="0 0 18 18" fill="none"
                               xmlns="http://www.w3.org/2000/svg">
                               <path

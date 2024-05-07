@@ -12,14 +12,14 @@ const categoryController = {
     get: async (req, res) => {
         try {
             const category = await categoryModel.find({})
-            res.render('Pages/category', { categories: category })
+            res.render('Pages/category/category', { categories: category })
         } catch (error) {
             console.log(error)
         }
     },
     form: (req, res) => {
         try {
-            res.render('Pages/addcategory')
+            res.render('Pages/category/addcategory')
         } catch (error) {
             console.log(error)
         }
@@ -37,7 +37,7 @@ const categoryController = {
         const { id } = req.params
         try {
             const category = await categoryModel.findById(id)
-            res.render('Pages/editcategory', { category: category })
+            res.render('Pages/category/editcategory', { category: category })
         } catch (error) {
             console.log(error)
         }

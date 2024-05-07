@@ -18,7 +18,7 @@ const productController = {
                     path: 'categoryID'
                 }
             })
-            res.render('Pages/products', { products: product })
+            res.render('Pages/product/products', { products: product })
         } catch (error) {
             console.log(error)
         }
@@ -27,7 +27,7 @@ const productController = {
         try {
             const subCategoryData = await subCategoryModel.find({})
             console.log(subCategoryData)
-            res.render('Pages/addproduct', { subcategories: subCategoryData })
+            res.render('Pages/product/addproduct', { subcategories: subCategoryData })
         } catch (error) {
             console.log(error)
         }
@@ -46,7 +46,7 @@ const productController = {
         try {
             const product = await productModel.findById(id)
             const subCategoryData = await subCategoryModel.find({})
-            res.render('Pages/editproduct', { product: product, subcategories: subCategoryData })
+            res.render('Pages/product/editproduct', { product: product, subcategories: subCategoryData })
         } catch (error) {
             console.log(error)
         }
