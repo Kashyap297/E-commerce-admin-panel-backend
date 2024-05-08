@@ -56,7 +56,7 @@ const productController = {
         try {
             const product = await productModel.findById(id)
             const subCategoryData = await subCategoryModel.find({})
-            console.log(product)
+            // console.log(product)
             res.render('Pages/product/editproduct', { product: product, subcategories: subCategoryData })
         } catch (error) {
             console.log(error)
@@ -64,9 +64,15 @@ const productController = {
     },
     update: async (req, res) => {
         const { id } = req.params
-        const { name, subCategoryID } = req.body
+        const { name, description, price, subCategoryID } = req.body
         try {
-            const product = await productModel.findByIdAndUpdate(id, { name: name, subCategoryID: subCategoryID }, { new: true })
+            let updateFields = { name: name, description: description, price: price, subCategoryID: subCategoryID };
+            if(req.file) {
+                const productimage = req.file.filename;
+                updateFields.productimage = productimage;
+            }
+            const product = await productModel.findByIdAndUpdate(id, updateFields, { new: true })
+            console.log(product)
             res.redirect('/product')
         } catch (error) {
             console.log(error)
