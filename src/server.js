@@ -17,6 +17,7 @@ app.set('views', 'src/views')
 
 // Set up the public folder to serve static files
 app.use(express.static('public'));
+app.use(express.static('upload'));
 
 // Middleware
 app.use(express.urlencoded({ extended: false }))
