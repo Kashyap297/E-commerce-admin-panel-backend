@@ -3,6 +3,7 @@ const dbConnection = require('./config/db');
 const categoryRouter = require('./routes/categoryRoute');
 const subCatRouter = require('./routes/subCategoryRoute');
 const productRouter = require('./routes/productRoute');
+const managerRouter = require('./routes/managerRoute');
 const app = express()
 
 // port
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/category', categoryRouter)
 app.use('/subcategory', subCatRouter)
 app.use('/product', productRouter)
+app.use('/manager', managerRouter)
 
 app.get('/', (req, res) => {
     res.render('Pages/index')
