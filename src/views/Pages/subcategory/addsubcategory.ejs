@@ -45,49 +45,9 @@
                         Add Sub-Category
                       </label>
                       <input type="text" name="name" placeholder="i.e, Mobile, Laptop"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" />
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" required/>
                     </div>
-
-                    <!-- <div class="w-full">
-                          <label
-                            class="mb-3 block text-sm font-medium text-black dark:text-white"
-                          >
-                            Last name
-                          </label>
-                          <input
-                            type="text"
-                            placeholder="Enter your last name"
-                            class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                          />
-                        </div> -->
                   </div>
-
-                  <!-- <div class="mb-4.5">
-                        <label
-                          class="mb-3 block text-sm font-medium text-black dark:text-white"
-                        >
-                          Email <span class="text-meta-1">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          placeholder="Enter your email address"
-                          class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                        />
-                      </div> -->
-
-                  <!-- <div class="mb-4.5">
-                        <label
-                          class="mb-3 block text-sm font-medium text-black dark:text-white"
-                        >
-                          Subject
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Select subject"
-                          class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                        />
-                      </div> -->
-
                   <div class="mb-4.5">
                     <label class="mb-3 block text-sm font-medium text-black dark:text-white">
                       Category
@@ -95,7 +55,7 @@
                     <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent dark:bg-form-input">
                       <select
                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                        :class="isOptionSelected && 'text-black dark:text-white'" @change="isOptionSelected = true" name="categoryID">
+                        :class="isOptionSelected && 'text-black dark:text-white'" @change="isOptionSelected = true" name="categoryID" required>
                         <option value="" class="text-body">
                           -- Select Category --
                         </option>
@@ -104,7 +64,7 @@
                             <%= category.name %>
                           </option>
                           <% }); %>
-                      </select>
+                      </select >
                       <span class="absolute right-4 top-1/2 z-30 -translate-y-1/2">
                         <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
