@@ -1,17 +1,20 @@
 const managerModel = require("../models/managerModel")
+const userModel = require("../models/userModel")
 
 const managerController = {
     create: async (req, res) => {
         try {
             const { name, email, password } = req.body
-            const manager = await managerModel.findOne({ email })
-            if (manager) {
+            const user = await userModel.findOne({ email })
+            if (user) {
                 return res.status(400).json({
-                    message: 'Email already Exist',
+                    message: 'Manager Email already Exist',
                     success: false
                 })
             }
-            const data = await managerModel.create({ name, email, password })
+            const data = await userModel.create({ name, email, password, role : 'manager' })
+            console.log(data)
+            console.log('Manager Create')
             res.redirect('/manager')
         } catch (error) {
             console.log(error)
@@ -19,7 +22,7 @@ const managerController = {
     },
     get: async (req, res) => {
         try {
-            const manager = await managerModel.find()
+            const manager = await userModel.find({role : 'manager'})
             // res.send(manager)
             res.render('Pages/manager/manager', { managers: manager })
         } catch (error) {
@@ -36,7 +39,7 @@ const managerController = {
     delete: async (req, res) => {
         const { id } = req.params
         try {
-            const manager = await managerModel.findByIdAndDelete(id);
+            const manager = await userModel.findByIdAndDelete(id);
             res.redirect('/manager')
         } catch (error) {
             console.log(error)
@@ -45,7 +48,7 @@ const managerController = {
     edit: async (req, res) => {
         const { id } = req.params
         try {
-            const manager = await managerModel.findById(id)
+            const manager = await userModel.findById(id)
             res.render('Pages/manager/editmanager', { manager: manager })
         } catch (error) {
             console.log(error)
@@ -55,7 +58,8 @@ const managerController = {
         const { id } = req.params
         const { name, email, password } = req.body
         try {
-            const manager = await managerModel.findByIdAndUpdate(id, { name: name, email: email, password: password }, { new: true })
+            const manager = await userModel.findByIdAndUpdate(id, { name: name, email: email, password: password }, { new: true })
+            console.log(manager)
             res.redirect('/manager')
         } catch (error) {
             console.log(error)
