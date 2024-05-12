@@ -41,9 +41,9 @@ const userController = {
 
             // token Generate
             const payload = {
-                sub : user._id,
-                user : user.name,
-                role : user.role
+                sub: user._id,
+                user: user.name,
+                role: user.role
             }
 
             const secret = "secret_Key"

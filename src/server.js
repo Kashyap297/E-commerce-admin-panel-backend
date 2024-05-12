@@ -5,6 +5,8 @@ const subCatRouter = require('./routes/subCategoryRoute');
 const productRouter = require('./routes/productRoute');
 const managerRouter = require('./routes/managerRoute');
 const userRouter = require('./routes/userRoute');
+const cookieParser = require('cookie-parser');
+const authenticate = require('./middleware/authenticate');
 const app = express()
 
 // port
@@ -20,6 +22,7 @@ app.set('views', 'src/views')
 // Set up the public folder to serve static files
 app.use(express.static('public'));
 app.use(express.static('upload'));
+app.use(cookieParser());
 
 // Middleware
 app.use(express.urlencoded({ extended: false }))
@@ -31,7 +34,7 @@ app.use('/product', productRouter)
 app.use('/manager', managerRouter)
 app.use('/user', userRouter)
 
-app.get('/', (req, res) => {
+app.get('/', authenticate, (req, res) => {
     res.render('Pages/index')
 })
 
