@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema({
     role : {
         type : String,
         default : 'user'
-    }
+    },
+    show: { type: String }
 }, { timestamps: true })
 
 module.exports = mongoose.model('users', userSchema)
