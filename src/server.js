@@ -4,6 +4,7 @@ const categoryRouter = require('./routes/categoryRoute');
 const subCatRouter = require('./routes/subCategoryRoute');
 const productRouter = require('./routes/productRoute');
 const managerRouter = require('./routes/managerRoute');
+const userRouter = require('./routes/userRoute');
 const app = express()
 
 // port
@@ -28,6 +29,7 @@ app.use('/category', categoryRouter)
 app.use('/subcategory', subCatRouter)
 app.use('/product', productRouter)
 app.use('/manager', managerRouter)
+app.use('/user', userRouter)
 
 app.get('/', (req, res) => {
     res.render('Pages/index')
