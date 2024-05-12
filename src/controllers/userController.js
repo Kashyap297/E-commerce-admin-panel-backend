@@ -59,11 +59,7 @@ const userController = {
                 maxAge: 1000 * 60 * 60 * 24 //24 Hr
             })
 
-            res.json({
-                message: "Login Successfull",
-                success: true,
-                token
-            })
+            res.redirect('/')
 
         } catch (error) {
             console.log(error)

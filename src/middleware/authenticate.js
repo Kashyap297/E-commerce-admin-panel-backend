@@ -4,7 +4,6 @@ const userModel = require("../models/userModel")
 const authenticate = async (req, res, next) => {
     try {
         const token = req.cookies.token
-        console.log(token)
         if (!token) {
             return res.redirect('/user/login')
         }
@@ -14,7 +13,6 @@ const authenticate = async (req, res, next) => {
         try {
             const payload = jwt.verify(token, secret, (err, decoded) => {
                 if (err) {
-                    
                     return res.redirect('/user/login')
                 }
                 return decoded
@@ -25,7 +23,6 @@ const authenticate = async (req, res, next) => {
             }
 
             const user = await userModel.findById(payload.sub)
-            console.log(user)
             if (!user) {
                 return res.redirect('/user/login')
             }

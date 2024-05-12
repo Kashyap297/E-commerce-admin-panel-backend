@@ -34,7 +34,11 @@ app.use('/product', productRouter)
 app.use('/manager', managerRouter)
 app.use('/user', userRouter)
 
-app.get('/', authenticate, (req, res) => {
+app.get('/', authenticate, async (req, res) => {
+    // const { name, role } = req.user
+    // console.log(payload)
+    // const user = await userModel.findById(payload.sub)
+    // console.log(user)
     res.render('Pages/index')
 })
 
