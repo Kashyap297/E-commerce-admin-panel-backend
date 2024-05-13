@@ -1,6 +1,7 @@
 const userModel = require('../models/userModel')
 const bcryptjs = require('bcryptjs')
 const jwt = require("jsonwebtoken")
+const productModel = require('../models/productModel')
 
 const userController = {
     signup: async (req, res) => {
@@ -92,7 +93,13 @@ const userController = {
     },
     userPage: async (req, res) => {
         try {
-            res.render('Pages/user/user')
+            const products = await productModel.find().populate({
+                path: 'subCategoryID',
+                populate: {
+                    path: 'categoryID'
+                }
+            })
+            res.render('Pages/user/user', {products : products})
         } catch (error) {
             console.log(error)
         }
