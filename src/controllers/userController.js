@@ -67,14 +67,15 @@ const userController = {
     },
     loginForm: async (req, res) => {
         try {
-            res.render('Pages/user/loginForm')
+
+            res.render('Pages/user/loginForm', { user : '' })
         } catch (error) {
             console.log(error)
         }
     },
     signupForm: async (req, res) => {
         try {
-            res.render('Pages/user/signupForm')
+            res.render('Pages/user/signupForm' ,{user : ''})
         } catch (error) {
             console.log(error)
         }

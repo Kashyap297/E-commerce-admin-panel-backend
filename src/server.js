@@ -7,6 +7,7 @@ const managerRouter = require('./routes/managerRoute');
 const userRouter = require('./routes/userRoute');
 const cookieParser = require('cookie-parser');
 const authenticate = require('./middleware/authenticate');
+const setUserData = require('./middleware/setUserData');
 const app = express()
 
 // port
@@ -34,11 +35,7 @@ app.use('/product', productRouter)
 app.use('/manager', managerRouter)
 app.use('/user', userRouter)
 
-app.get('/', authenticate, async (req, res) => {
-    // const { name, role } = req.user
-    // console.log(payload)
-    // const user = await userModel.findById(payload.sub)
-    // console.log(user)
+app.get('/', authenticate, setUserData, async (req, res) => {
     res.render('Pages/index')
 })
 

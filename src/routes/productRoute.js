@@ -2,9 +2,11 @@ const {Router} = require('express')
 const productController = require('../controllers/productController')
 const upload = require('../middleware/multer')
 const authenticate = require('../middleware/authenticate')
+const setUserData = require('../middleware/setUserData')
 
 const productRouter = Router()
 productRouter.use(authenticate)
+productRouter.use(setUserData)
 
 productRouter.post('/create', upload ,productController.create)
 productRouter.get('/', productController.get)

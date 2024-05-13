@@ -1,11 +1,13 @@
 const {Router} = require('express')
 const subCatController = require('../controllers/subCategoryController')
 const authenticate = require('../middleware/authenticate')
+const setUserData = require('../middleware/setUserData')
 
 const subCatRouter = Router()
 
 // authenticate middleware
 subCatRouter.use(authenticate)
+subCatRouter.use(setUserData)
 
 subCatRouter.post('/create', subCatController.create)
 subCatRouter.get('/', subCatController.get)

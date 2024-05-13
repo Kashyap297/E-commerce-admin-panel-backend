@@ -1,10 +1,13 @@
 const { Router } = require('express')
 const managerController = require('../controllers/managerController')
 const authenticate = require('../middleware/authenticate')
+const setUserData = require('../middleware/setUserData')
 
 const managerRouter = Router()
 
 managerRouter.use(authenticate)
+managerRouter.use(setUserData)
+
 
 managerRouter.post('/create', managerController.create)
 managerRouter.get('/', managerController.get)

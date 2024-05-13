@@ -22,7 +22,8 @@ const authenticate = async (req, res, next) => {
                 return res.redirect('/user/login')
             }
 
-            const user = await userModel.findById(payload.sub)
+            const user = await userModel.findById(payload.sub).select('-password -show -createdAt -updatedAt -__v')
+            // console.log(user)
             if (!user) {
                 return res.redirect('/user/login')
             }
