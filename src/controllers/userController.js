@@ -59,8 +59,22 @@ const userController = {
                 maxAge: 1000 * 60 * 60 * 24 //24 Hr
             })
 
-            res.redirect('/')
+            // res.redirect('/')
+            console.log(user)
+            if (user.role == "user") {
+                res.render('Pages/user/user')
+            }else {
+                res.redirect('/')
+            }
 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    logout : async(req, res) => {
+        try {
+            res.clearCookie("token");
+            res.redirect('/user/login')
         } catch (error) {
             console.log(error)
         }
@@ -68,14 +82,14 @@ const userController = {
     loginForm: async (req, res) => {
         try {
 
-            res.render('Pages/user/loginForm', { user : '' })
+            res.render('Pages/user/loginForm', { user: '' })
         } catch (error) {
             console.log(error)
         }
     },
     signupForm: async (req, res) => {
         try {
-            res.render('Pages/user/signupForm' ,{user : ''})
+            res.render('Pages/user/signupForm', { user: '' })
         } catch (error) {
             console.log(error)
         }

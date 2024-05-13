@@ -1,7 +1,12 @@
 const setUserData = (req, res, next) => {
-    const user = req.user || ''
-    res.locals.user = user
-    next()
+    try {
+        const user = req.user || ''
+        res.locals.user = user
+        next()
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 module.exports = setUserData
