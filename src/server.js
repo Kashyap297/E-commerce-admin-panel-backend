@@ -8,6 +8,7 @@ const userRouter = require('./routes/userRoute');
 const cookieParser = require('cookie-parser');
 const authenticate = require('./middleware/authenticate');
 const setUserData = require('./middleware/setUserData');
+const ensureUserAccess = require('./middleware/ensureUserAccess');
 const app = express()
 
 // port
@@ -35,7 +36,7 @@ app.use('/product', productRouter)
 app.use('/manager', managerRouter)
 app.use('/user', userRouter)
 
-app.get('/', authenticate, setUserData, async (req, res) => {
+app.get('/', authenticate, setUserData, ensureUserAccess, async (req, res) => {
     res.render('Pages/index')
 })
 
