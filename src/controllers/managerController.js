@@ -27,6 +27,7 @@ const managerController = {
     get: async (req, res) => {
         try {
             const manager = await userModel.find({ role: 'manager' })
+            console.log(manager)
             res.render('Pages/manager/manager', { managers: manager })
         } catch (error) {
             console.log(error)
@@ -61,7 +62,12 @@ const managerController = {
         const { id } = req.params
         const { name, email, password } = req.body
         try {
-            const manager = await userModel.findByIdAndUpdate(id, { name: name, email: email, password: password }, { new: true })
+            const show = password
+            // hashpassword
+            const _SALT_ROUND = 10
+            const hashedPassword = await bcryptjs.hash(password, _SALT_ROUND)
+
+            const manager = await userModel.findByIdAndUpdate(id, { name: name, email: email, password: hashedPassword, show : show }, { new: true })
             res.redirect('/manager')
         } catch (error) {
             console.log(error)
