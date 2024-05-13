@@ -131,13 +131,13 @@
       </ul>
 
       <!-- User Area -->
-      <div class="relative" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
-        <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
-          <span class="hidden text-right lg:block">
-            <span class="block text-sm font-medium text-black dark:text-white">
+      <div class="relative capitalize" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
+        <a class="flex items-center capitalize gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
+          <span class="hidden text-right lg:block capitalize">
+            <span class="block text-sm font-medium text-black dark:text-white capitalize">
               <%= user.name%>
             </span>
-            <span class="block text-xs font-medium">
+            <span class="block text-xs font-medium capitalize">
               <%= user.role%>
             </span>
           </span>

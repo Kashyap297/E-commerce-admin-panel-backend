@@ -3,12 +3,14 @@ const managerController = require('../controllers/managerController')
 const authenticate = require('../middleware/authenticate')
 const setUserData = require('../middleware/setUserData')
 const ensureUserAccess = require('../middleware/ensureUserAccess')
+const ensureAdminAccess = require('../middleware/ensureAdminAccess')
 
 const managerRouter = Router()
 
 managerRouter.use(authenticate)
 managerRouter.use(setUserData)
 managerRouter.use(ensureUserAccess)
+managerRouter.use(ensureAdminAccess)
 
 
 managerRouter.post('/create', managerController.create)
