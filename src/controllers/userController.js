@@ -62,7 +62,7 @@ const userController = {
             // res.redirect('/')
             console.log(user)
             if (user.role == "user") {
-                res.render('Pages/user/user')
+                res.redirect('/user/user')
             } else {
                 res.redirect('/')
             }

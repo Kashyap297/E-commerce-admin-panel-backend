@@ -6,7 +6,9 @@ const ensureUserAccess = async (req, res, next) => {
         }
 
         if (req.user.role === "user") {
-            return res.redirect('/user/user')
+            res.redirect('/user/user')
+        } else {
+            res.redirect('/')
         }
         next()
     } catch (error) {

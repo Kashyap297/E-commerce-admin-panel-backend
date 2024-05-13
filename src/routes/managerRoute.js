@@ -9,8 +9,8 @@ const managerRouter = Router()
 
 managerRouter.use(authenticate)
 managerRouter.use(setUserData)
-managerRouter.use(ensureUserAccess)
-managerRouter.use(ensureAdminAccess)
+managerRouter.use(ensureUserAccess) //only restrict users
+managerRouter.use(ensureAdminAccess) //only admin can access
 
 
 managerRouter.post('/create', managerController.create)
