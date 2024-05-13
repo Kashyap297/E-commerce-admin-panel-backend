@@ -1,6 +1,6 @@
 const setUserData = (req, res, next) => {
     try {
-        const user = req.user || ''
+        const user = req.user || '';
         res.locals.user = user
         next()
     } catch (error) {

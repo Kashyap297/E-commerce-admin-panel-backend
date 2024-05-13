@@ -52,15 +52,11 @@ const userController = {
                 expiresIn: "1d"
             })
 
-            console.log(token)
-
             res.cookie('token', token, {
                 httpOnly: true,
                 maxAge: 1000 * 60 * 60 * 24 //24 Hr
             })
 
-            // res.redirect('/')
-            console.log(user)
             if (user.role == "user") {
                 res.redirect('/user/user')
             } else {

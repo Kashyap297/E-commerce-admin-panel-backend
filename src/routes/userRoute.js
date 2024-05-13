@@ -13,6 +13,6 @@ userRouter.post('/signup', guest, userController.signup)
 userRouter.get('/login', guest, userController.loginForm)
 userRouter.post('/login', guest, userController.login)
 userRouter.get('/logout', userController.logout)
-userRouter.get('/user', authenticate, onlyuser, userController.userPage)
+userRouter.get('/user', authenticate, setUserData, onlyuser, userController.userPage)
 
 module.exports = userRouter

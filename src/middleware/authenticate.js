@@ -23,13 +23,11 @@ const authenticate = async (req, res, next) => {
             }
 
             const user = await userModel.findById(payload.sub).select('-password -show -createdAt -updatedAt -__v')
-            // console.log(user)
             if (!user) {
                 return res.redirect('/user/login')
             }
 
             req.user = user;
-            req.role = payload.role;
             next()
         } catch (error) {
             return res.redirect('/user/login');
