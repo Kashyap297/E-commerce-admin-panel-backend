@@ -63,7 +63,7 @@ const userController = {
             console.log(user)
             if (user.role == "user") {
                 res.render('Pages/user/user')
-            }else {
+            } else {
                 res.redirect('/')
             }
 
@@ -71,7 +71,7 @@ const userController = {
             console.log(error)
         }
     },
-    logout : async(req, res) => {
+    logout: async (req, res) => {
         try {
             res.clearCookie("token");
             res.redirect('/user/login')
@@ -82,14 +82,21 @@ const userController = {
     loginForm: async (req, res) => {
         try {
 
-            res.render('Pages/user/loginForm', { user: '' })
+            res.render('Pages/user/loginForm')
         } catch (error) {
             console.log(error)
         }
     },
     signupForm: async (req, res) => {
         try {
-            res.render('Pages/user/signupForm', { user: '' })
+            res.render('Pages/user/signupForm')
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    userPage: async (req, res) => {
+        try {
+            res.render('Pages/user/user')
         } catch (error) {
             console.log(error)
         }
