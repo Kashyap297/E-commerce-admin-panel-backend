@@ -3,10 +3,12 @@ const productController = require('../controllers/productController')
 const upload = require('../middleware/multer')
 const authenticate = require('../middleware/authenticate')
 const setUserData = require('../middleware/setUserData')
+const ensureUserAccess = require('../middleware/ensureUserAccess')
 
 const productRouter = Router()
 productRouter.use(authenticate)
 productRouter.use(setUserData)
+productRouter.use(ensureUserAccess)
 
 productRouter.post('/create', upload ,productController.create)
 productRouter.get('/', productController.get)

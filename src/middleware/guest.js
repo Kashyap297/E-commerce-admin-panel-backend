@@ -28,10 +28,10 @@ const guest = async (req, res, next) => {
         }
 
         if (user) {
-            if (user.role == 'user') {
+            if (user.role === 'user') {
                 res.redirect('/user/user')
             }
-            if (user.role == 'manager' || user.role == 'admin') {
+            if (user.role === 'manager' || user.role === 'admin') {
                 res.redirect('/')
             }
         }

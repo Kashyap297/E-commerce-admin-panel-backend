@@ -2,6 +2,7 @@ const { Router } = require('express')
 const userController = require('../controllers/userController')
 const setUserData = require('../middleware/setUserData')
 const guest = require('../middleware/guest')
+const authenticate = require('../middleware/authenticate')
 const userRouter = Router()
 
 userRouter.use(setUserData)
@@ -11,7 +12,6 @@ userRouter.post('/signup', guest, userController.signup)
 userRouter.get('/login', guest, userController.loginForm)
 userRouter.post('/login', guest, userController.login)
 userRouter.get('/logout', userController.logout)
-userRouter.get('/user', userController.userPage)
-
+userRouter.get('/user', authenticate, userController.userPage)
 
 module.exports = userRouter
