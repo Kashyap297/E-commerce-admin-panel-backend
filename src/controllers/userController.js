@@ -65,7 +65,6 @@ const userController = {
                 //  Generate OTP
                 const OTP = generateOTP();
                 const otpExpiration = new Date(Date.now() + 4 * 60 * 1000);
-                console.log(OTP)
                 req.session.otp = OTP;
                 req.session.user = user;
                 req.session.otpExpiration = otpExpiration;
