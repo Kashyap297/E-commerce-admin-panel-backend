@@ -14,5 +14,7 @@ userRouter.get('/login', guest, userController.loginForm)
 userRouter.post('/login', guest, userController.login)
 userRouter.get('/logout', userController.logout)
 userRouter.get('/user', authenticate, setUserData, onlyuser, userController.userPage)
+userRouter.get('/otpverification', guest, userController.otpForm)
+userRouter.post('/otpverification', guest, userController.otpVerify)
 
 module.exports = userRouter
