@@ -83,7 +83,12 @@ const userController = {
                     from: 'kashyap29700@gmail.com',
                     to: user.email,
                     subject: 'Login OTP',
-                    text: `Your OTP for login is: ${OTP}`
+                    // text: `Hello, Your OTP for login is: ${OTP}`,
+                    html: `
+                    <p>Hello, ${user.name}</p>
+                    <p>Your One-Time Password (OTP) for login is: <strong>${OTP}</strong></p>Please enter this OTP within 4:00 Minutes to complete your authentication process.
+                    <p>For security purposes, please refrain from sharing this OTP with anyone.</p>
+                `
                 };
 
                 transporter.sendMail(mailOptions, function (error, info) {
